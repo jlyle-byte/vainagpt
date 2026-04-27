@@ -39,7 +39,8 @@ export default function Header() {
             style={{
               top: "-0.05em",
               right: "-0.55em",
-              transform: "rotate(8deg)",
+              // Nudge the sparkle 22pt to the right of its anchor (per request).
+              transform: "translateX(22pt) rotate(8deg)",
               filter: "drop-shadow(0 0 8px rgba(232, 184, 75, 0.55))",
               pointerEvents: "none",
             }}
