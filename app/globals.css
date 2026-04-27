@@ -3,19 +3,21 @@
 @tailwind utilities;
 
 :root {
-  --vg-bg-dark: #0a1a0e;       /* deep tropical green, page bg */
+  --vg-bg-dark: #061009;       /* very dark green-black page bg (per og.png) */
   --vg-cream: #fdf6e3;         /* warm cream, chat-card paper */
   --vg-cream-deep: #f0e6c5;
   --vg-ink: #1a120a;           /* dark ink for cream-card body text */
-  --vg-gold: #e8b84b;          /* golden yellow */
+  --vg-gold: #e8b84b;          /* golden yellow — flag yellow */
   --vg-gold-deep: #c8981b;
-  --vg-red: #e63946;           /* warm red */
+  --vg-red: #e63946;           /* warm red — flag red */
   --vg-red-deep: #b8192a;
-  --vg-teal: #2a9d8f;           /* Caribbean teal */
+  --vg-teal: #2a9d8f;           /* Caribbean teal — chat-card stripe accent */
   --vg-teal-deep: #1a6d5f;
+  --vg-navy: #082c57;            /* sunburst mid-radius colour (per og.png) */
+  --vg-navy-deep: #16374e;       /* sunburst outer-radius colour (per og.png) */
 
   /* Master-template-derived components reference these. */
-  --bc-bg-dark: #0a1a0e;
+  --bc-bg-dark: #061009;
   --bc-cream: #fdf6e3;
   --bc-cream-deep: #f0e6c5;
   --bc-ink: #1a120a;
@@ -25,8 +27,8 @@
   --bc-red-dark: #b8192a;
   --bc-green: #2a9d8f;
   --bc-green-dark: #1a6d5f;
-  --bc-black: #0a1a0e;
-  --bc-near-black: #0a1a0e;
+  --bc-black: #061009;
+  --bc-near-black: #061009;
 }
 
 html, body {
@@ -39,31 +41,33 @@ html, body {
 .display { font-family: var(--font-display), Georgia, serif; }
 .serif   { font-family: var(--font-body),    Georgia, serif; }
 
-/* Sunburst — gold centre fading through warm red into deep teal at the edge.
-   Caribbean sunset seen through palm leaves. */
+/* Sunburst — gold centre fading through navy blue at mid-radius into
+   teal-navy at the outer edge. Sampled directly from public/og.png:
+   centre #948d07 (gold-rich), mid #082c57 (navy), outer #16374e (teal-navy). */
 .sunburst {
   position: absolute; top: -25%; left: 50%; transform: translateX(-50%);
   width: 1500px; height: 1500px;
   background: radial-gradient(circle at center,
     var(--vg-gold) 0%,
-    rgba(232,184,75,0.55) 8%,
-    rgba(230,57,70,0.45) 24%,
-    rgba(184,25,42,0.30) 40%,
-    rgba(42,157,143,0.22) 58%,
-    rgba(26,109,95,0.10) 75%,
-    transparent 90%);
+    rgba(232,184,75,0.55) 10%,
+    rgba(8,44,87,0.55) 28%,
+    rgba(8,44,87,0.40) 45%,
+    rgba(22,55,78,0.28) 62%,
+    rgba(22,55,78,0.12) 78%,
+    transparent 92%);
   filter: blur(60px);
   pointer-events: none;
   opacity: 0.85;
 }
 
-/* Smoke — soft asymmetric warm-toned colour blobs, layered across screen. */
+/* Smoke — soft asymmetric colour blobs in the gold/navy/teal palette,
+   echoing the og.png atmospheric layering. */
 .smoke {
   position: absolute; inset: 0; pointer-events: none; mix-blend-mode: screen;
   background:
-    radial-gradient(ellipse 700px 350px at 18% 8%,  rgba(232,184,75,0.18), transparent),
-    radial-gradient(ellipse 500px 400px at 82% 78%, rgba(230,57,70,0.20), transparent),
-    radial-gradient(ellipse 600px 300px at 50% 100%, rgba(42,157,143,0.18), transparent);
+    radial-gradient(ellipse 700px 350px at 18% 8%,  rgba(232,184,75,0.16), transparent),
+    radial-gradient(ellipse 500px 400px at 82% 78%, rgba(8,44,87,0.20), transparent),
+    radial-gradient(ellipse 600px 300px at 50% 100%, rgba(22,55,78,0.18), transparent);
 }
 
 /* Warm grain — fractal noise tinted toward the gold/amber palette,
@@ -199,23 +203,15 @@ html, body {
     transparent 14px);
 }
 
-/* Avatar — gold-to-red radial gradient circle, teal inner ring + gold outer
-   ring, soft gold glow. The 8-ray sun SVG sits inside as an inline element. */
+/* Avatar wrapper — just dimensions + alignment for the Venezuelan-flag
+   sunburst image (app/icon.png). The sunburst is a complete brand mark
+   on a transparent background, so no surrounding disc, ring, or border
+   is applied — those would fight the image. */
 .tl-avatar {
   position: relative;
   width: 48px; height: 48px;
   flex-shrink: 0;
-  border-radius: 50%;
-  background: radial-gradient(circle at 50% 45%,
-    var(--vg-gold) 0%,
-    var(--vg-gold-deep) 65%,
-    var(--vg-red) 100%);
-  border: 2px solid var(--vg-teal);
-  box-shadow:
-    0 0 0 2px var(--vg-gold),
-    0 0 12px rgba(232, 184, 75, 0.45);
   display: flex; align-items: center; justify-content: center;
-  overflow: hidden;
 }
 
 /* Beer-tier paywall button — gold gradient, ink text. */

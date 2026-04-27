@@ -1,3 +1,5 @@
+import Image from "next/image";
+import iconSrc from "../app/icon.png";
 import { STAMPS, CHARACTER_TAGLINE, PALETTE } from "@/lib/constants";
 
 export default function Header() {
@@ -19,17 +21,42 @@ export default function Header() {
         </span>
       </div>
 
-      {/* Wordmark — Playfair Display, cream, three-layer drop shadow,
-          gentle drift animation. */}
+      {/* Wordmark — Playfair Display "VainaGPT" with the Venezuelan-flag
+          sunburst as a sparkle accent tucked into the upper-right of the
+          final "T", per the og.png hero. Drift animation kept gentle. */}
       <div className="flex justify-center">
-        <h1
-          className="display drift wordmark-stamp"
-          style={{
-            fontSize: "clamp(3.5rem, 12vw, 7.5rem)",
-          }}
-        >
-          vainagpt
-        </h1>
+        <div className="relative inline-block drift">
+          <h1
+            className="display wordmark-stamp"
+            style={{
+              fontSize: "clamp(3.5rem, 12vw, 7.5rem)",
+            }}
+          >
+            VainaGPT
+          </h1>
+          <span
+            className="absolute"
+            style={{
+              top: "-0.05em",
+              right: "-0.55em",
+              transform: "rotate(8deg)",
+              filter: "drop-shadow(0 0 8px rgba(232, 184, 75, 0.55))",
+              pointerEvents: "none",
+            }}
+          >
+            <Image
+              src={iconSrc}
+              alt=""
+              width={48}
+              height={48}
+              priority
+              style={{
+                width: "clamp(1.5rem, 4.5vw, 2.75rem)",
+                height: "auto",
+              }}
+            />
+          </span>
+        </div>
       </div>
 
       {/* Tagline — Lora italic, gold, between gradient rules. */}

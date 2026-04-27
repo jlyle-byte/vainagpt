@@ -105,7 +105,7 @@ export default function ShareCard({ msg, onClose }: Props) {
               className="display wordmark-stamp"
               style={{ fontSize: "2.5rem", marginTop: 12 }}
             >
-              vainagpt
+              VainaGPT
             </h2>
             <p
               className="serif italic"
@@ -115,7 +115,7 @@ export default function ShareCard({ msg, onClose }: Props) {
                 marginTop: 4,
               }}
             >
-              tu pana is here
+              tu pana, tu consejo, tu vaina.
             </p>
           </div>
 

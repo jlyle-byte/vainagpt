@@ -1,8 +1,10 @@
-// vainagpt palette — warm tropical Venezuela.
-// The country of memory, not the news. Sun-faded travel poster colours
-// — deep tropical green, golden yellow, Caribbean teal, warm cream.
+// vainagpt palette — extracted from the Claude Design asset set
+// (public/og.png hero, app/icon.png Venezuelan-flag sunburst).
+// Deep green-black page background with a gold-to-navy sunburst centre.
+// Yellow / blue / red flag colours appear in the icon sunburst rays;
+// teal still anchors the chat-card stripes.
 export const PALETTE = {
-  bgDark: "#0a1a0e",       // deep tropical green, page background
+  bgDark: "#061009",       // very dark green-black, page bg (sampled from og.png corners)
   primary: "#e8b84b",      // golden yellow — sun, corn, Malta
   primaryDeep: "#c8981b",  // darker gold for hovers + button borders
   secondary: "#e63946",    // warm red — sunset, accents
@@ -95,7 +97,7 @@ export const STAMPS = {
 };
 
 export const CHARACTER_NAME = "Arturito";
-export const CHARACTER_TAGLINE = "tu pana is here — ask me anything";
+export const CHARACTER_TAGLINE = "tu pana, tu consejo, tu vaina.";
 export const DOMAIN = "vainagpt.com";
 
 export const CASE_SESSION_WARNING =
