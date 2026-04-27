@@ -1,25 +1,27 @@
-// vainagpt palette — extracted from the Claude Design asset set
-// (public/og.png hero, app/icon.png Venezuelan-flag sunburst).
-// Deep green-black page background with a gold-to-navy sunburst centre.
-// Yellow / blue / red flag colours appear in the icon sunburst rays;
-// teal still anchors the chat-card stripes.
+// vainagpt palette — Venezuelan flag colours, blue-dominant.
+// Page bg sampled from og.png corners (#061009 — very dark green-black);
+// the three flag accents are the official Pantone-derived values:
+//   Yellow #FCE300 · Blue #003DA5 · Red #EF3340
+// Blue is the dominant accent — anchors the sunburst, mid-stripe of the
+// chat card edges, the wordmark drop-shadow centre, and the middle
+// loading dot.
 export const PALETTE = {
-  bgDark: "#061009",       // very dark green-black, page bg (sampled from og.png corners)
-  primary: "#e8b84b",      // golden yellow — sun, corn, Malta
-  primaryDeep: "#c8981b",  // darker gold for hovers + button borders
-  secondary: "#e63946",    // warm red — sunset, accents
-  secondaryDeep: "#b8192a",
-  accent: "#2a9d8f",       // Caribbean teal — afternoon sea
-  accentDeep: "#1a6d5f",
-  cream: "#fdf6e3",        // warm cream — paper in the Caracas sun
-  ink: "#1a120a",          // dark ink for body text on cream
+  bgDark: "#061009",       // very dark green-black, page bg (sampled from og.png)
+  primary: "#FCE300",      // FLAG YELLOW — vivid, lead accent
+  primaryDeep: "#cab500",  // darker yellow for hovers + button borders
+  secondary: "#EF3340",    // FLAG RED — accents, send button, paywall case
+  secondaryDeep: "#b8242c",
+  accent: "#003DA5",       // FLAG BLUE — dominant: sunburst, stripe middle
+  accentDeep: "#002b75",
+  cream: "#fdf6e3",        // warm cream — wordmark, body text on dark bg
+  ink: "#1a120a",          // dark ink for body text on cream paper
   // Legacy aliases so master-template-derived components don't all need rename.
-  red: "#e63946",
-  redDark: "#b8192a",
-  gold: "#e8b84b",
-  goldDeep: "#c8981b",
-  green: "#2a9d8f",        // teal stands in for the master-template "green" slot
-  greenDark: "#1a6d5f",
+  red: "#EF3340",
+  redDark: "#b8242c",
+  gold: "#FCE300",
+  goldDeep: "#cab500",
+  green: "#003DA5",        // flag blue stands in for the master-template "green" slot
+  greenDark: "#002b75",
   black: "#1a120a",
   creamDeep: "#f0e6c5",
 };

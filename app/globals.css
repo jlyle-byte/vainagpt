@@ -4,29 +4,34 @@
 
 :root {
   --vg-bg-dark: #061009;       /* very dark green-black page bg (per og.png) */
-  --vg-cream: #fdf6e3;         /* warm cream, chat-card paper */
+  --vg-cream: #fdf6e3;         /* warm cream, chat-card paper + wordmark fill */
   --vg-cream-deep: #f0e6c5;
   --vg-ink: #1a120a;           /* dark ink for cream-card body text */
-  --vg-gold: #e8b84b;          /* golden yellow — flag yellow */
-  --vg-gold-deep: #c8981b;
-  --vg-red: #e63946;           /* warm red — flag red */
-  --vg-red-deep: #b8192a;
-  --vg-teal: #2a9d8f;           /* Caribbean teal — chat-card stripe accent */
-  --vg-teal-deep: #1a6d5f;
-  --vg-navy: #082c57;            /* sunburst mid-radius colour (per og.png) */
-  --vg-navy-deep: #16374e;       /* sunburst outer-radius colour (per og.png) */
+  /* Venezuelan flag — official Pantone-derived values. */
+  --vg-yellow: #FCE300;
+  --vg-yellow-deep: #cab500;
+  --vg-blue: #003DA5;
+  --vg-blue-deep: #002b75;
+  --vg-red: #EF3340;
+  --vg-red-deep: #b8242c;
+  /* Aliases kept for legacy class names. "Gold" slot = flag yellow now;
+     "teal" slot = flag blue. */
+  --vg-gold: #FCE300;
+  --vg-gold-deep: #cab500;
+  --vg-teal: #003DA5;
+  --vg-teal-deep: #002b75;
 
   /* Master-template-derived components reference these. */
   --bc-bg-dark: #061009;
   --bc-cream: #fdf6e3;
   --bc-cream-deep: #f0e6c5;
   --bc-ink: #1a120a;
-  --bc-gold: #e8b84b;
-  --bc-gold-deep: #c8981b;
-  --bc-red: #e63946;
-  --bc-red-dark: #b8192a;
-  --bc-green: #2a9d8f;
-  --bc-green-dark: #1a6d5f;
+  --bc-gold: #FCE300;
+  --bc-gold-deep: #cab500;
+  --bc-red: #EF3340;
+  --bc-red-dark: #b8242c;
+  --bc-green: #003DA5;
+  --bc-green-dark: #002b75;
   --bc-black: #061009;
   --bc-near-black: #061009;
 }
@@ -41,33 +46,34 @@ html, body {
 .display { font-family: var(--font-display), Georgia, serif; }
 .serif   { font-family: var(--font-body),    Georgia, serif; }
 
-/* Sunburst — gold centre fading through navy blue at mid-radius into
-   teal-navy at the outer edge. Sampled directly from public/og.png:
-   centre #948d07 (gold-rich), mid #082c57 (navy), outer #16374e (teal-navy). */
+/* Sunburst — small flag-yellow centre giving way quickly to a wide,
+   dominant flag-blue (#003DA5) glow that carries most of the canvas
+   before fading to transparent at the edges. Blue-dominant, per the
+   og.png hero. */
 .sunburst {
   position: absolute; top: -25%; left: 50%; transform: translateX(-50%);
   width: 1500px; height: 1500px;
   background: radial-gradient(circle at center,
-    var(--vg-gold) 0%,
-    rgba(232,184,75,0.55) 10%,
-    rgba(8,44,87,0.55) 28%,
-    rgba(8,44,87,0.40) 45%,
-    rgba(22,55,78,0.28) 62%,
-    rgba(22,55,78,0.12) 78%,
+    rgba(252,227,0,0.65) 0%,
+    rgba(252,227,0,0.30) 8%,
+    rgba(0,61,165,0.55) 18%,
+    rgba(0,61,165,0.45) 38%,
+    rgba(0,61,165,0.30) 58%,
+    rgba(0,61,165,0.15) 78%,
     transparent 92%);
   filter: blur(60px);
   pointer-events: none;
-  opacity: 0.85;
+  opacity: 0.9;
 }
 
-/* Smoke — soft asymmetric colour blobs in the gold/navy/teal palette,
-   echoing the og.png atmospheric layering. */
+/* Smoke — asymmetric blue-dominant blobs with a yellow accent up top
+   and a red accent in one corner, echoing the icon's flag rays. */
 .smoke {
   position: absolute; inset: 0; pointer-events: none; mix-blend-mode: screen;
   background:
-    radial-gradient(ellipse 700px 350px at 18% 8%,  rgba(232,184,75,0.16), transparent),
-    radial-gradient(ellipse 500px 400px at 82% 78%, rgba(8,44,87,0.20), transparent),
-    radial-gradient(ellipse 600px 300px at 50% 100%, rgba(22,55,78,0.18), transparent);
+    radial-gradient(ellipse 700px 350px at 18% 8%,  rgba(252,227,0,0.15), transparent),
+    radial-gradient(ellipse 600px 380px at 82% 78%, rgba(0,61,165,0.30), transparent),
+    radial-gradient(ellipse 500px 320px at 50% 105%, rgba(239,51,64,0.14), transparent);
 }
 
 /* Warm grain — fractal noise tinted toward the gold/amber palette,
