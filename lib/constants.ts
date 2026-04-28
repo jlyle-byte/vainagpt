@@ -77,7 +77,6 @@ export const DISCLAIMER_LINE =
 export const STAMPS = {
   left: "★ VENEZUELA · LA DIÁSPORA · EL MUNDO ★",
   right: "QUÉ ES LA VAINA",
-  label: "Pana Records · Desde Siempre",
   footerText: "pa' divertirse chamo, pero el consejo es real",
 };
 
